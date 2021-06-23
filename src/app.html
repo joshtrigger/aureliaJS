@@ -1,14 +1,8 @@
 <template>
   <h1>${message}</h1>
   <ul>
-    <li repeat.for="todo of todoList">
-      <input type="checkbox" checked.bind="todo.done" />
-      <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
-        ${todo.description}
-      </span>
-      <button click.delegate="removeTodo(todo)">Remove</button>
-    </li>
+    <li>Home</li>
+    <li>About Us</li>
   </ul>
-  <input type="text" value.bind="newItem" placeholder="New item" />
-  <button click.delegate="addTodo()">Add</button>
+  <router-view></router-view>
 </template>

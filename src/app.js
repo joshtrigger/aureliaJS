@@ -3,18 +3,14 @@ import { Todo } from "./todo";
 export class App {
   constructor() {
     this.message = "Hello World!";
-    this.todoList = [];
-    this.todoList.push(new Todo("Clean my room"));
-    this.todoList.push(new Todo("Do the dishes"));
-    this.todoList.push(new Todo("Wash the car"));
   }
 
-  addTodo() {
-    this.todoList.push(new Todo(this.newItem));
-    this.newItem = "";
-  }
-
-  removeTodo(todo) {
-    this.todoList.splice(this.todoList.indexOf(todo), 1);
+  configureRouter(config, router) {
+    this.router = router;
+    config.title = "Joshua";
+    config.map([
+      { route: "", name: "home", moduleId: "index", title: "home" },
+      { route: "about", name: "about", moduleId: "about", title: "about us" },
+    ]);
   }
 }
