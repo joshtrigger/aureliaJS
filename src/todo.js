@@ -1,6 +1,5 @@
 export class Todo {
-  constructor(description) {
-    this.description = description;
-    this.done = false;
+  activate(params) {
+    this.id = params.id;
   }
 }

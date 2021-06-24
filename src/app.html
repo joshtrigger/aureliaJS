@@ -1,8 +1,12 @@
 <template>
+  <require from="./styles.css"></require>
   <h1>${message}</h1>
   <ul>
-    <li>Home</li>
-    <li>About Us</li>
+    <li><a route-href="home">Home</a></li>
+    <li><a route-href="about">About Us</a></li>
+    <li>
+      <a route-href="route: todo; params.bind: {id: message}">Todo</a>
+    </li>
   </ul>
   <router-view></router-view>
 </template>
