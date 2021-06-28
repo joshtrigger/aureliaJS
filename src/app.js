@@ -1,13 +1,19 @@
+import { inject } from "aurelia-framework";
 import { PLATFORM } from "aurelia-pal";
-import moment from "moment"
+import moment from "moment";
+import { EventAggregator } from "aurelia-event-aggregator";
 
+@inject(EventAggregator)
 export class App {
-  constructor() {
-    this.message = `Hello ${moment().format('YYYY')}!`;
+  constructor(EventAggregator) {
+    this.message = `Hello ${moment().format("YYYY")}!`;
+    this.ea = EventAggregator;
   }
 
   attached() {
-    console.log('init')
+    this.ea.subscribe("header", (text) => {
+      this.message = text;
+    });
   }
 
   configureRouter(config, router) {
